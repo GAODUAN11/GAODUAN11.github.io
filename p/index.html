@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="CPU 的地址线和数据线宽度与 “每个地址对应的数据位数” 的关系，需要结合计算机的编址方式（按字节或按字）来分析。以下是详细解答：\n一、关键概念区分 地址线的作用 地址线数量（如 20 根）决定了 CPU 可寻址的存储单元数量，公式为：$\\( \\text{存储单元数} = 2^{\\text{地址线数}} \\)。$\n">
+<title></title>
+
+<link rel='canonical' href='https://GAODUAN11.github.io/p/'>
+
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="">
+<meta property='og:description' content="CPU 的地址线和数据线宽度与 “每个地址对应的数据位数” 的关系，需要结合计算机的编址方式（按字节或按字）来分析。以下是详细解答：\n一、关键概念区分 地址线的作用 地址线数量（如 20 根）决定了 CPU 可寻址的存储单元数量，公式为：$\\( \\text{存储单元数} = 2^{\\text{地址线数}} \\)。$\n">
+<meta property='og:url' content='https://GAODUAN11.github.io/p/'>
+<meta property='og:site_name' content='NurKoGD'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='#dada' /><meta property='article:tag' content='dada' /><meta property='article:published_time' content='2023-10-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-10-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="CPU 的地址线和数据线宽度与 “每个地址对应的数据位数” 的关系，需要结合计算机的编址方式（按字节或按字）来分析。以下是详细解答：\n一、关键概念区分 地址线的作用 地址线数量（如 20 根）决定了 CPU 可寻址的存储单元数量，公式为：$\\( \\text{存储单元数} = 2^{\\text{地址线数}} \\)。$\n">
+    <link rel="shortcut icon" href="/favicon1.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/weeken_hu_95ec977eca8220e5.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🤪</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">NurKoGD</a></h1>
+            <h2 class="site-description">GD</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1358102042'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-bilibili" width="24" height="24" viewBox="0 0 1130 1024" stroke="currentColor" fill="currentColor" stroke-width="0">
+  <path d="M354.12 178.656c-6.068 5.664-11.732 14.159-13.35 18.609-2.428 8.091 8.9 43.691 14.159 43.691s20.631 16.587 20.631 22.25c0 11.327-12.541 18.205-32.768 18.205-24.273 0-72.818 19.418-89.809 35.6-6.473 6.068-18.205 23.463-26.295 39.241l-14.969 28.318v327.68l14.969 28.318c16.991 33.172 25.082 41.263 57.85 59.468l24.273 13.35 508.915 2.428 28.722-13.755c36.004-16.991 50.567-31.554 66.75-65.94l12.541-26.7V548.007l0.404-161.412-12.541-25.486c-6.473-14.159-19.823-32.768-29.532-41.668-21.845-21.036-60.277-38.027-85.359-38.027-38.027 0-45.309-15.777-18.609-40.454 14.159-12.945 16.181-17.395 16.181-31.958 0-13.755-2.428-19.823-11.732-29.127-6.473-6.473-15.777-11.732-20.631-11.732-8.091 0-23.868 6.473-28.318 11.732-1.214 1.214-25.082 24.677-52.995 51.781l-50.973 49.759-58.254-0.404c-31.958 0-61.49-1.618-65.536-3.236s-26.7-21.845-50.567-45.309c-71.2-69.986-81.717-75.649-103.158-53.804z m455.516 183.259c3.641 0.404 13.755 6.473 22.25 14.159l14.969 13.755 1.214 151.299c0.81 137.545 0.404 152.108-6.068 164.65-10.113 19.013-24.273 28.318-45.713 29.127-10.113 0.404-120.959 0.404-246.367 0l-227.758-0.404-31.554-31.554V394.685l14.563-15.777c10.923-12.541 17.799-16.587 29.127-17.395 11.732-0.81 443.379-0.404 475.339 0.404z"></path>
+  <path d="M406.307 479.636c-14.159 15.373-14.563 17.395-14.563 46.523 0 27.914 0.81 31.15 12.541 44.5 20.227 23.059 38.836 22.655 59.063-1.618 7.686-8.9 8.9-15.373 9.305-44.5 0-32.768-0.404-33.982-13.755-47.331-19.418-19.418-33.578-18.609-52.591 2.428z m274.279-2.426c-13.35 13.35-13.755 14.563-13.755 48.141 0 33.172 0.404 34.79 12.945 46.927 16.991 16.587 25.082 18.609 40.859 9.709 20.227-11.732 27.914-30.34 25.891-63.108-1.618-24.677-3.236-29.127-15.373-41.668-17.799-18.205-32.364-18.205-50.567 0z"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://GAODUAN11.github.io/en/" >English</option>
+                                
+                                    <option value="https://GAODUAN11.github.io/" selected>简体中文</option>
+                                
+                                    <option value="https://GAODUAN11.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#一关键概念区分"><strong>一、关键概念区分</strong></a></li>
+        <li><a href="#二按字节编址现代计算机主流方式"><strong>二、按字节编址（现代计算机主流方式）</strong></a>
+          <ol>
+            <li><a href="#1-每个地址对应-1-字节8-位"><strong>1. 每个地址对应 1 字节（8 位）</strong></a></li>
+            <li><a href="#2-20-根地址线的地址空间"><strong>2. 20 根地址线的地址空间</strong></a></li>
+            <li><a href="#3-16-位数据线的含义"><strong>3. 16 位数据线的含义</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#三按字编址理论或特定架构"><strong>三、按字编址（理论或特定架构）</strong></a>
+          <ol>
+            <li><a href="#1-假设字长--16-位1-字--16-位--2-字节"><strong>1. 假设字长 = 16 位（1 字 = 16 位 = 2 字节）</strong></a></li>
+            <li><a href="#2-20-根地址线的地址空间-1"><strong>2. 20 根地址线的地址空间</strong></a></li>
+            <li><a href="#3-16-位数据线的匹配性"><strong>3. 16 位数据线的匹配性</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#四结论是否一个地址对应-16-位数据"><strong>四、结论：是否一个地址对应 16 位数据？</strong></a>
+          <ol>
+            <li><a href="#核心结论"><strong>核心结论</strong></a></li>
+            <li><a href="#常见误区"><strong>常见误区</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#五举例说明"><strong>五、举例说明</strong></a></li>
+        <li><a href="#总结"><strong>总结</strong></a></li>
+        <li><a href="#一核心矛盾逻辑编址与物理存储的差异"><strong>一、核心矛盾：逻辑编址与物理存储的差异</strong></a>
+          <ol>
+            <li><a href="#关键问题"><strong>关键问题</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#二地址映射与存储结构"><strong>二、地址映射与存储结构</strong></a>
+          <ol>
+            <li><a href="#1-字节地址到字地址的映射"><strong>1. 字节地址到字地址的映射</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#三数据读写操作分析"><strong>三、数据读写操作分析</strong></a>
+          <ol>
+            <li><a href="#1-读取单字节数据8-位"><strong>1. 读取单字节数据（8 位）</strong></a></li>
+            <li><a href="#2-读取-16-位数据字"><strong>2. 读取 16 位数据（字）</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#四存储器的硬件实现"><strong>四、存储器的硬件实现</strong></a></li>
+        <li><a href="#五存储容量与地址范围计算"><strong>五、存储容量与地址范围计算</strong></a>
+          <ol>
+            <li><a href="#1-cpu-视角字节寻址"><strong>1. CPU 视角（字节寻址）</strong></a></li>
+            <li><a href="#2-存储器视角16-位字编址"><strong>2. 存储器视角（16 位字编址）</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#六总结混合编址的关键结论"><strong>六、总结：混合编址的关键结论</strong></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/"></a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 01, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>CPU 的地址线和数据线宽度与 “每个地址对应的数据位数” 的关系，需要结合计算机的<strong>编址方式</strong>（按字节或按字）来分析。以下是详细解答：</p>
+<h3 id="一关键概念区分"><strong>一、关键概念区分</strong>
+</h3><ol>
+<li><strong>地址线的作用</strong></li>
+</ol>
+<ul>
+<li>
+<p>地址线数量（如 20 根）决定了 CPU 可寻址的<strong>存储单元数量</strong>，公式为：$\( \text{存储单元数} = 2^{\text{地址线数}} \)。$</p>
+</li>
+<li>
+<p><strong>存储单元的大小</strong>（即每个地址对应的数据位数）由<strong>编址方式</strong>决定，<strong>与数据线宽度无直接关联</strong>。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>数据线的作用</strong></li>
+</ol>
+<ul>
+<li>
+<p>数据线宽度（如 16 位）表示 CPU 一次能读写的数据量（即位宽），但不决定 “每个地址对应的数据位数”。</p>
+</li>
+<li>
+<p>例如：16 位数据线可一次读写 2 字节（16 位），但这 2 字节可能对应<strong>一个字地址</strong>（按字编址）或<strong>两个字节地址</strong>（按字节编址）。</p>
+</li>
+</ul>
+<h3 id="二按字节编址现代计算机主流方式"><strong>二、按字节编址（现代计算机主流方式）</strong>
+</h3><h4 id="1-每个地址对应-1-字节8-位"><strong>1. 每个地址对应 1 字节（8 位）</strong>
+</h4><ul>
+<li>
+<p>在<strong>字节编址</strong>下，<strong>每个地址对应 8 位数据</strong>（1 字节）。</p>
+</li>
+<li>
+<p>例如：地址0x0000对应第 1 字节（8 位），0x0001对应第 2 字节（下一个 8 位），以此类推。</p>
+</li>
+</ul>
+<h4 id="2-20-根地址线的地址空间"><strong>2. 20 根地址线的地址空间</strong>
+</h4><ul>
+<li>
+<p>可寻址的字节单元数：$\( 2^{20} = 1\,048\,576 \, \text{字节} = 1 \, \text{MB} \)$。</p>
+</li>
+<li>
+<p>总存储容量：$\( 1 \, \text{MB} \times 8 \, \text{位} = 8 \, \text{M位} \)（或直接用字节表示为 1 MB）。$</p>
+</li>
+</ul>
+<h4 id="3-16-位数据线的含义"><strong>3. 16 位数据线的含义</strong>
+</h4><ul>
+<li>
+<p>CPU 一次可读写<strong>2 字节（16 位）数据</strong>，但需通过<strong>两个连续的字节地址</strong>完成：</p>
+</li>
+<li>
+<p>例如：读取 16 位数据时，CPU 访问地址0x0000（低 8 位）和0x0001（高 8 位），组合成 16 位数据。</p>
+</li>
+<li>
+<p>此时，<strong>一个地址仍对应 8 位数据</strong>，数据线宽度仅影响数据传输的效率（一次传 2 字节而非 1 字节）。</p>
+</li>
+</ul>
+<h3 id="三按字编址理论或特定架构"><strong>三、按字编址（理论或特定架构）</strong>
+</h3><h4 id="1-假设字长--16-位1-字--16-位--2-字节"><strong>1. 假设字长 = 16 位（1 字 = 16 位 = 2 字节）</strong>
+</h4><ul>
+<li>
+<p>在<strong>字编址</strong>下，<strong>每个地址对应 1 个字（16 位数据）</strong>。</p>
+</li>
+<li>
+<p>例如：地址0x0000对应第 1 字（16 位），0x0001对应第 2 字（下一个 16 位），地址间隔为 2 字节（因 1 字占 2 字节）。</p>
+</li>
+</ul>
+<h4 id="2-20-根地址线的地址空间-1"><strong>2. 20 根地址线的地址空间</strong>
+</h4><ul>
+<li>
+<p>可寻址的字单元数：$\( 2^{20} = 1\,048\,576 \, \text{字} = 1 \, \text{M字} \)$。</p>
+<ul>
+<li>总存储容量：$\( 1 \, \text{M字} \times 16 \, \text{位} = 16 \, \text{M位} = 2 \, \text{MB} \)$（因 1 字 = 2 字节）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-16-位数据线的匹配性"><strong>3. 16 位数据线的匹配性</strong>
+</h4><ul>
+<li>
+<p>数据线宽度（16 位）与字长（16 位）完全匹配，CPU 可通过<strong>一个字地址</strong>直接读写 16 位数据，无需访问多个地址。</p>
+</li>
+<li>
+<p>此时，<strong>一个地址对应 16 位数据</strong>，但这是基于 “按字编址且字长 = 16 位” 的前提。</p>
+</li>
+</ul>
+<h3 id="四结论是否一个地址对应-16-位数据"><strong>四、结论：是否一个地址对应 16 位数据？</strong>
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>编址方式</td>
+          <td>每个地址对应的数据位数</td>
+          <td>20 根地址线 + 16 位数据线的含义</td>
+      </tr>
+      <tr>
+          <td><strong>按字节编址</strong></td>
+          <td>8 位（1 字节）</td>
+          <td>- 地址空间：1 MB（字节单元）- 16 位数据线：一次读写 2 字节（需两个地址）</td>
+      </tr>
+      <tr>
+          <td><strong>按字编址</strong></td>
+          <td>16 位（1 字，假设字长 = 16 位）</td>
+          <td>- 地址空间：1 M 字（16 位单元）- 16 位数据线：一次读写 1 字（一个地址）</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="核心结论"><strong>核心结论</strong>
+</h4><ul>
+<li>
+<p><strong>在现代计算机（默认字节编址）中，一个地址对应 8 位数据</strong>，16 位数据线用于高效传输 2 字节数据（需两个地址）。</p>
+</li>
+<li>
+<p><strong>仅在按字编址且字长 = 16 位时，一个地址才对应 16 位数据</strong>，但这种情况需特殊说明（如特定嵌入式架构）。</p>
+</li>
+</ul>
+<h4 id="常见误区"><strong>常见误区</strong>
+</h4><p>用户容易将 “数据线宽度” 直接等同于 “每个地址对应的数据位数”，但实际上：</p>
+<ul>
+<li>
+<p>地址线决定<strong>存储单元数量</strong>，编址方式决定<strong>存储单元大小</strong>（位宽）。</p>
+</li>
+<li>
+<p>数据线宽度决定<strong>一次传输的数据量</strong>，与存储单元位宽可能匹配（如按字读写）或需组合多个单元（如按字节读写）。</p>
+</li>
+</ul>
+<h3 id="五举例说明"><strong>五、举例说明</strong>
+</h3><ul>
+<li>
+<p><strong>按字节编址</strong>：</p>
+</li>
+<li>
+<p>地址0x0000：8 位数据（字节 1）。</p>
+</li>
+<li>
+<p>地址0x0001：8 位数据（字节 2）。</p>
+</li>
+<li>
+<p>读取 16 位数据需访问0x0000和0x0001，组合为 16 位。</p>
+</li>
+<li>
+<p><strong>按字编址（字长 16 位）</strong>：</p>
+</li>
+<li>
+<p>地址0x0000：16 位数据（字 1，占字节0x0000和0x0001）。</p>
+</li>
+<li>
+<p>地址0x0001：16 位数据（字 2，占字节0x0002和0x0003）。</p>
+</li>
+<li>
+<p>读取 16 位数据只需访问0x0000一个地址。</p>
+</li>
+</ul>
+<h3 id="总结"><strong>总结</strong>
+</h3><p>CPU 的地址线和数据线宽度不直接决定 “每个地址对应的数据位数”，核心取决于<strong>编址方式</strong>：</p>
+<ul>
+<li>
+<p><strong>字节编址</strong>：每个地址对应 8 位（1 字节），16 位数据线需操作两个地址。</p>
+</li>
+<li>
+<p><strong>字编址</strong>：每个地址对应字长位数（如 16 位），需明确字长且地址按字对齐。</p>
+</li>
+</ul>
+<p>因此，<strong>默认情况下（字节编址），一个地址对应 8 位数据，而非 16 位</strong>。16 位数据线是 CPU 的传输能力，与存储单元的位宽无必然联系。</p>
+<blockquote>
+<p>[!question]
+当 CPU 按字节寻址（逻辑上每个地址对应 1 字节），但存储器的物理存储单元为 16 位字长（即每个物理地址对应 2 字节）时，需要通过<strong>地址映射</strong>和<strong>硬件逻辑</strong>来协调两者的差异。以下是具体分析：</p></blockquote>
+<h3 id="一核心矛盾逻辑编址与物理存储的差异"><strong>一、核心矛盾：逻辑编址与物理存储的差异</strong>
+</h3><h4 id="关键问题"><strong>关键问题</strong>
+</h4><p>CPU 生成的是<strong>字节地址</strong>（如 0x0000、0x0001），但存储器的物理单元以<strong>16 位字</strong>为单位（每个字占 2 字节）。因此需要解决：</p>
+<ol>
+<li>
+<p>如何将字节地址映射到存储器的字地址？</p>
+</li>
+<li>
+<p>如何读写单字节数据（需访问半个字单元）？</p>
+</li>
+<li>
+<p>如何读写 16 位数据（需对齐或非对齐访问）？</p>
+</li>
+</ol>
+<h3 id="二地址映射与存储结构"><strong>二、地址映射与存储结构</strong>
+</h3><p>假设：</p>
+<ul>
+<li>
+<p>CPU 有 20 根地址线（字节寻址范围：$2^{20} = 1 , \text{MB}$字节）。</p>
+</li>
+<li>
+<p>存储器物理上以 16 位字为单位编址（每个字占 2 字节），则：</p>
+</li>
+<li>
+<p>存储器的字地址数 = $1 , \text{MB} \div 2 , \text{字节/字} = 512 , \text{K字}，即物理地址线需 19 根(2^{19} = 512 , \text{K})。$</p>
+</li>
+</ul>
+<h4 id="1-字节地址到字地址的映射"><strong>1. 字节地址到字地址的映射</strong>
+</h4><ul>
+<li>
+<p><strong>字地址计算</strong>：字节地址 \(B\) 对应的字地址 \($W = B \div 2$\)（向下取整）。</p>
+</li>
+<li>
+<p><strong>字节偏移</strong>：字节地址 \(B\) 在字单元中的位置：</p>
+</li>
+<li>
+<p>若 \(B\) 为偶数（\(B = 2W\)）：对应字单元的低 8 位（LSB）。</p>
+</li>
+<li>
+<p>若 \(B\) 为奇数（\(B = 2W + 1\)）：对应字单元的高 8 位（MSB）。</p>
+</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<ul>
+<li>
+<p>字节地址 0x0000 → 字地址 0x0000，低 8 位。</p>
+</li>
+<li>
+<p>字节地址 0x0001 → 字地址 0x0000，高 8 位。</p>
+</li>
+<li>
+<p>字节地址 0x0002 → 字地址 0x0001，低 8 位。</p>
+</li>
+</ul>
+<h3 id="三数据读写操作分析"><strong>三、数据读写操作分析</strong>
+</h3><h4 id="1-读取单字节数据8-位"><strong>1. 读取单字节数据（8 位）</strong>
+</h4><ul>
+<li>
+<p><strong>情况 1：偶数字节地址（低 8 位）</strong></p>
+</li>
+<li>
+<p>例：读取字节地址 0x0000（字地址 0x0000 的低 8 位）。</p>
+</li>
+<li>
+<p>操作：访问字地址 0x0000，通过硬件逻辑提取低 8 位数据（屏蔽高 8 位）。</p>
+</li>
+<li>
+<p><strong>情况 2：奇数字节地址（高 8 位）</strong></p>
+</li>
+<li>
+<p>例：读取字节地址 0x0001（字地址 0x0000 的高 8 位）。</p>
+</li>
+<li>
+<p>操作：访问字地址 0x0000，提取高 8 位数据（右移 8 位或屏蔽低 8 位）。</p>
+</li>
+</ul>
+<h4 id="2-读取-16-位数据字"><strong>2. 读取 16 位数据（字）</strong>
+</h4><ul>
+<li>
+<p><strong>对齐访问（偶数字节地址起始）</strong></p>
+</li>
+<li>
+<p>例：读取字节地址 0x0000~0x0001（对应字地址 0x0000 的 16 位）。</p>
+</li>
+<li>
+<p>操作：直接访问字地址 0x0000，一次读取 16 位数据，无需拆分。</p>
+</li>
+<li>
+<p><strong>非对齐访问（奇数字节地址起始）</strong></p>
+</li>
+<li>
+<p>例：读取字节地址 0x0001~0x0002（对应字地址 0x0000 的高 8 位和字地址 0x0001 的低 8 位）。</p>
+</li>
+<li>
+<p>操作：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>访问字地址 0x0000，提取高 8 位（0x0001 的数据）。</p>
+</li>
+<li>
+<p>访问字地址 0x0001，提取低 8 位（0x0002 的数据）。</p>
+</li>
+<li>
+<p>硬件将两部分拼接为 16 位数据（高 8 位在前，低 8 位在后）。</p>
+</li>
+</ol>
+<ul>
+<li><strong>注意</strong>：非对齐访问可能需要额外时钟周期，且并非所有架构都支持（如早期 ARM 需对齐访问）。</li>
+</ul>
+<h3 id="四存储器的硬件实现"><strong>四、存储器的硬件实现</strong>
+</h3><p>为支持字节寻址与 16 位字存储的兼容，存储器需具备以下特性：</p>
+<ol>
+<li><strong>字节使能信号（Byte Enable）</strong></li>
+</ol>
+<ul>
+<li>
+<p>每个字单元配备 2 个字节使能信号（BE0、BE1），分别控制低 8 位和高 8 位的读写。</p>
+</li>
+<li>
+<p>例：读取字节地址 0x0001 时，使能 BE1（高 8 位），屏蔽 BE0（低 8 位）。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>数据总线宽度与拆分逻辑</strong></li>
+</ol>
+<ul>
+<li>
+<p>数据线宽度为 16 位，与字单元位宽匹配。</p>
+</li>
+<li>
+<p>单字节读写时，通过字节使能信号和数据掩码（Mask）提取 / 写入目标字节，另一字节保持不变。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>地址译码逻辑</strong></li>
+</ol>
+<ul>
+<li>将 CPU 的字节地址转换为存储器的字地址和字节偏移（通过地址线的最低位 A0 判断奇偶：A0=0→低字节，A0=1→高字节）。</li>
+</ul>
+<h3 id="五存储容量与地址范围计算"><strong>五、存储容量与地址范围计算</strong>
+</h3><h4 id="1-cpu-视角字节寻址"><strong>1. CPU 视角（字节寻址）</strong>
+</h4><ul>
+<li>
+<p>地址范围：\($0 \sim 2^{20} - 1$\)（共 1 MB 字节地址）。</p>
+</li>
+<li>
+<p>总存储容量：\($1 \, \text{MB} \times 8 \, \text{位} = 8 \, \text{M位} = 1 \, \text{MB}$\)（按字节计算）。</p>
+</li>
+</ul>
+<h4 id="2-存储器视角16-位字编址"><strong>2. 存储器视角（16 位字编址）</strong>
+</h4><ul>
+<li>
+<p>字地址范围：\($0 \sim 2^{19} - 1$\)（共 512 K 字地址）。</p>
+</li>
+<li>
+<p>总存储容量：\($512 \, \text{K字} \times 16 \, \text{位} = 8 \, \text{M位} = 1 \, \text{MB}$\)（与 CPU 视角一致）。</p>
+</li>
+</ul>
+<h3 id="六总结混合编址的关键结论"><strong>六、总结：混合编址的关键结论</strong>
+</h3><ol>
+<li><strong>地址映射本质</strong></li>
+</ol>
+<ul>
+<li>
+<p>CPU 的字节地址是<strong>逻辑地址</strong>，存储器的字地址是<strong>物理地址</strong>，两者通过地址线低位（A0）关联。</p>
+</li>
+<li>
+<p>逻辑地址空间（字节）与物理地址空间（字）的关系：</p>
+</li>
+<li>
+<p>\($\text{逻辑地址数} = 2 \times \text{\(\text{逻辑地址数} = 2 \times \text{物理地址数}\)}$)。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>数据访问效率</strong></li>
+</ol>
+<ul>
+<li>
+<p>对齐的 16 位访问（偶数字节起始）效率最高（一次访存）。</p>
+</li>
+<li>
+<p>单字节访问或非对齐 16 位访问需额外硬件处理，可能降低性能。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>兼容性设计</strong></li>
+</ol>
+<ul>
+<li>现代存储器通常支持字节使能，允许灵活访问不同位宽数据，屏蔽了物理存储单元与逻辑编址的差异。</li>
+</ul>
+<p><strong>一句话概括</strong>：CPU 按字节寻址时，逻辑上每个地址对应 1 字节，但物理存储器以 16 位字为单元存储，需通过地址转换和字节使能逻辑实现兼容，本质是 “逻辑字节地址映射到物理字地址的某个字节”。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%23dada/">#Dada</a>
+        
+            <a href="/tags/dada/">Dada</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 G端-NurKoGD
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
