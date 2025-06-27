@@ -23,9 +23,6 @@
     <loc>https://GAODUAN11.github.io/tags/blog/</loc>
     <lastmod>2025-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://GAODUAN11.github.io/p/hugo-github%E5%8E%86%E7%A8%8B/</loc>
-    <lastmod>2025-06-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://GAODUAN11.github.io/post/</loc>
     <lastmod>2025-06-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -46,6 +43,9 @@
                 hreflang="zh-cn"
                 href="https://GAODUAN11.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/p/%E5%8E%86%E7%A8%8B/</loc>
+    <lastmod>2025-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://GAODUAN11.github.io/page/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
