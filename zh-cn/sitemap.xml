@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://GAODUAN11.github.io/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,47 +20,8 @@
                 href="https://GAODUAN11.github.io/"
                 />
   </url><url>
-    <loc>https://GAODUAN11.github.io/tags/blog/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/p/first/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/tags/first/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/post/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/tags/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://GAODUAN11.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="https://GAODUAN11.github.io/ar/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://GAODUAN11.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://GAODUAN11.github.io/p/%E5%8E%86%E7%A8%8B/</loc>
-    <lastmod>2025-06-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/page/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://GAODUAN11.github.io/categories/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -77,6 +38,69 @@
                 href="https://GAODUAN11.github.io/categories/"
                 />
   </url><url>
+    <loc>https://GAODUAN11.github.io/p/test-chinese/</loc>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://GAODUAN11.github.io/en/p/test-chinese/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/p/test-chinese/"
+                />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/post/</loc>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://GAODUAN11.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://GAODUAN11.github.io/ar/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/post/"
+                />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/categories/test/</loc>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://GAODUAN11.github.io/en/categories/test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/categories/test/"
+                />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://GAODUAN11.github.io/en/categories/%E6%B5%8B%E8%AF%95/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/categories/%E6%B5%8B%E8%AF%95/"
+                />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/page/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://GAODUAN11.github.io/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -92,6 +116,24 @@
     <loc>https://GAODUAN11.github.io/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://GAODUAN11.github.io/tags/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://GAODUAN11.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://GAODUAN11.github.io/ar/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/tags/"
+                />
+  </url><url>
     <loc>https://GAODUAN11.github.io/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -100,11 +142,18 @@
   </url><url>
     <loc>https://GAODUAN11.github.io/p/placeholder-text/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://GAODUAN11.github.io/ar/p/%D9%85%D8%AB%D8%A7%D9%84-%D9%86%D8%B5/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://GAODUAN11.github.io/p/placeholder-text/"
+                />
   </url><url>
     <loc>https://GAODUAN11.github.io/tags/tag-with-whitespaces/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/categories/test/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://GAODUAN11.github.io/categories/test-with-whitespaces/</loc>
