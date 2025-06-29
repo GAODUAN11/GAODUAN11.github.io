@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://GAODUAN11.github.io/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,17 +20,11 @@
                 href="https://GAODUAN11.github.io/"
                 />
   </url><url>
-    <loc>https://GAODUAN11.github.io/tags/blog/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/p/first/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://GAODUAN11.github.io/tags/first/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+    <loc>https://GAODUAN11.github.io/p/obsidian-hugo-github-picgo-jsdelivrcdn/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://GAODUAN11.github.io/post/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -48,7 +42,7 @@
                 />
   </url><url>
     <loc>https://GAODUAN11.github.io/tags/</loc>
-    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -64,6 +58,27 @@
                 hreflang="zh-cn"
                 href="https://GAODUAN11.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/%E8%B8%A9%E5%9D%91/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/%E6%9B%B4%E6%96%B0%E4%B8%AD/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2025-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/blog/</loc>
+    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/p/first/</loc>
+    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://GAODUAN11.github.io/tags/first/</loc>
+    <lastmod>2025-06-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://GAODUAN11.github.io/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
