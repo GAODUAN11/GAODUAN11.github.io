@@ -167,8 +167,56 @@ custom.scss搞完后，要在config.yaml中添加引用
 	
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;15github部署建议开梯子&#34;&gt;1.5.GitHub部署(建议开梯子)
-&lt;/h3&gt;&lt;h3 id=&#34;16github-action自动部署到github建议开梯子&#34;&gt;1.6.GitHub-Action自动部署到GitHub(建议开梯子)
+&lt;h3 id=&#34;15github手动部署建议开梯子&#34;&gt;1.5.GitHub手动部署(建议开梯子)
+&lt;/h3&gt;&lt;p&gt;前往【&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github官网&lt;/a&gt;】，创建仓库 &lt;strong&gt;{github用户名}.github.io&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;前往&lt;code&gt;Setting -&amp;gt; Pages -&amp;gt; Branch&lt;/code&gt;选择main分支，然后保存，会自动开启 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt; 的地址，这地址也是以后访问博客的地址
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629200014981.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|575x366&#34;
+	
+	
+&gt;
+回到hugo文件中，执行命令&lt;code&gt;hugo -D&lt;/code&gt;，会生成 &lt;strong&gt;public&lt;/strong&gt; 静态资源文件夹
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629200127919.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|579x461&#34;
+	
+	
+&gt;
+在 &lt;strong&gt;public&lt;/strong&gt; 执行以下命令上传到github仓库上，第一次上传可能需要输入账号密码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &amp;#34;first commit&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin {你的github仓库地址}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上传成功后，- （5）上传成功后访问https://{github用户名}.github.io ，成功搭建属于自己的Hugo博客&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!attention]
+若对网站的配置进行了修改，则还需要&lt;strong&gt;重新生成public&lt;/strong&gt;（把原来文件夹中的删掉）
+然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;16github-action自动部署到github建议开梯子&#34;&gt;1.6.GitHub-Action自动部署到GitHub(建议开梯子)
 &lt;/h3&gt;&lt;h4 id=&#34;161基础方式obsidian-enveloppe--本地仓库&#34;&gt;1.6.1.基础方式（Obsidian-enveloppe + 本地仓库）
 &lt;/h4&gt;&lt;h5 id=&#34;网站配置采用本地仓库修改后上传&#34;&gt;网站配置采用本地仓库修改后上传
 &lt;/h5&gt;&lt;p&gt;Github创建一个新的仓库，用于存放Hugo的主文件
@@ -274,7 +322,7 @@ token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: peaceiris/actions-gh-pages@v4
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PERSONAL_TOKEN: ${{ secrets.你的token变量名 }}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              EXTERNAL_REPOSITORY: 你的github名/你的public文件夹的仓库名
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_BRANCH: main
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_DIR: ./public
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              commit_message: auto deploy
@@ -346,7 +394,254 @@ token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h5 id=&#34;obsidian-enveloppe来快捷上传笔记到网站&#34;&gt;Obsidian-enveloppe来快捷上传笔记到网站
-&lt;/h5&gt;</description>
+&lt;/h5&gt;&lt;p&gt;参考教程
+&lt;a class=&#34;link&#34; href=&#34;https://www.printlove.cn/obsidian-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;使用 Obsidian 免费建个人博客 | PrintLove&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&#34;enveloppe配置&#34;&gt;Enveloppe配置
+&lt;/h6&gt;&lt;p&gt;参考教程
+&lt;a class=&#34;link&#34; href=&#34;https://www.printlove.cn/github-publisher-hugo/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Enveloppe 插件适配 Hugo 的配置 | PrintLove&lt;/a&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629184728889.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|558x418&#34;
+	
+	
+&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629190020615.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|557x405&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 dir 属性获取上传的目录，最终的上传路径为 &lt;code&gt;Root folder / Property key&lt;/code&gt;，即 &lt;code&gt;content/post/{dir}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果 dir 属性没有设置则默认上传到 Default folder 目录下，即 content/post/posts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629192719506.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|593x581&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h6 id=&#34;图片&#34;&gt;图片
+&lt;/h6&gt;&lt;p&gt;在 Obsidian 中引用本地图片链接时是不需要路径的，而在 Hugo 中一般会把图片统一放在 /static/images 目录下。&lt;/p&gt;
+&lt;p&gt;因此在 Hugo 文章的引用方式路径为 &lt;code&gt;/images/图片名称&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;现在要做的就是给 Obsidian 的本地图片路径增加 /images 前缀，使用到了 Text replacer 正则。&lt;/p&gt;
+&lt;h6 id=&#34;格式转化&#34;&gt;格式转化
+&lt;/h6&gt;&lt;p&gt;支持 &lt;code&gt;![]()&lt;/code&gt; 的图片格式，箭头 ↑ 表示会等 &lt;code&gt;![[]]&lt;/code&gt; 转化成 &lt;code&gt;![]()&lt;/code&gt; 之后执行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;匹配内容：/\]\(([^/\)]+?)\.(png|jpg|jpeg|webp|gif|avif)/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;替换：](/images/$1.$2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;箭头：↑
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;支持 &lt;code&gt;![[]]&lt;/code&gt; 的图片格式，且增加了 caption 和 size 的支持，分两种情况：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;情况一，支持 ![[filename.png|size]] 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;匹配内容：/\!\[\[([^/\]]+?)\.(png|jpg|jpeg|webp|gif|avif)\|(\d+)(x(\d+))?\]\]/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;替换：&lt;figure&gt;&lt;img src=&#34;https://GAODUAN11.github.io/images/$1.$2&#34; width=&#34;$3&#34; height=&#34;$5&#34;&gt;
+&lt;/figure&gt;
+
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;箭头：↓
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;情况二，支持 ![[filename.png|caption|size]]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;匹配内容：/\!\[\[([^/\]]+?)\.(png|jpg|jpeg|webp|gif|avif)\|([^\|]*?)(\|(\d+)(x(\d+))?)?\]\]/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;替换：&lt;figure&gt;&lt;img src=&#34;https://GAODUAN11.github.io/images/$1.$2&#34;
+    alt=&#34;$3&#34; width=&#34;$5&#34; height=&#34;$7&#34;&gt;&lt;figcaption&gt;
+      &lt;p&gt;$3&lt;/p&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;箭头：↓
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面的两种图片格式都支持，区别就是 &lt;code&gt;![[]]&lt;/code&gt; 格式会支持图片的 caption 和 size。&lt;/p&gt;
+&lt;h6 id=&#34;内部文章引用&#34;&gt;内部文章引用
+&lt;/h6&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629204042223.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;|641x304&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h6 id=&#34;文章锚点&#34;&gt;文章锚点
+&lt;/h6&gt;&lt;p&gt;如果文章链接中出现了锚点跳转，则记着下拉框选择 Lower：&lt;img src=&#34;https://www.printlove.cn/images/6eb9e895a11107c864eeb7a31509946a.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;6eb9e895a11107c864eeb7a31509946a.webp&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 &lt;code&gt;[[文章#标题]]&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;该配置会将锚点 (&lt;code&gt;#标题&lt;/code&gt;) 处理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;转小写&lt;/li&gt;
+&lt;li&gt;空格转化减号 (&lt;code&gt;-&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;只有转化才能正常访问锚点。&lt;/p&gt;
+&lt;h6 id=&#34;属性一级转二级&#34;&gt;属性一级转二级
+&lt;/h6&gt;&lt;p&gt;在 Obsidian 中如果属性是二级的话，展示效果就非常不友好直观，所以我会在 Obsidian 里这样写需要转二级的属性：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cover.image: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这个属性我用来设置文章的封面，具体要看看自己的主题是不是这样，如果不是那需要自己调整下。&lt;/p&gt;
+&lt;p&gt;Text replacer 正则：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;匹配内容：/cover\.image/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;替换：cover:\n    image
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;箭头：↑
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;替换中二级的缩紧正常应该使用 &lt;code&gt;\t&lt;/code&gt;，但我测试发现无效就改用 4 个空格。&lt;/p&gt;
+&lt;h6 id=&#34;删除留坑标记&#34;&gt;删除留坑标记
+&lt;/h6&gt;&lt;p&gt;当我发布的文章中如果许诺了一件事情，我就会配合 Obsidian 的 dataview 插件写一个标记。&lt;/p&gt;
+&lt;p&gt;然后使用 dataview 插件写的仪表盘里展示出留了哪些坑？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.printlove.cn/images/0c31efeb13ae78b293b9723c6de97783.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;坑列表示意图&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;坑列表示意图&lt;/p&gt;
+&lt;p&gt;标记格式（todo1 记着改成 todo，我不想识别到这个标记，只是演示而已）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[todo1:: 留坑的内容]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;dataview 语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;LIST todo WHERE todo != null and share
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在使用 Text replacer 正则删除文章里的标记：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;匹配内容：/\[todo::[^\]]+?\]/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;替换这块不填，就会删除匹配到的内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;箭头：↑
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h6 id=&#34;标签&#34;&gt;标签
+&lt;/h6&gt;&lt;p&gt;在 Obsidian 里是支持 &lt;code&gt;/&lt;/code&gt; 方式渲染多级标签的，在 Hugo 中是不支持的，所以需要开启将 &lt;code&gt;/&lt;/code&gt; 转位 &lt;code&gt;_&lt;/code&gt;。&lt;img src=&#34;https://www.printlove.cn/images/3c3e40b83ac5be7799d55696eadc7218.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;3c3e40b83ac5be7799d55696eadc7218.webp&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h6 id=&#34;踩的坑&#34;&gt;踩的坑
+&lt;/h6&gt;&lt;p&gt;Markdown hard line break 最好关闭，我这边开启造成了空行变多，使代码难看、表格无法渲染。&lt;/p&gt;
+&lt;h6 id=&#34;附件上传图片等&#34;&gt;附件上传(图片等)
+&lt;/h6&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629193432103.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;picgo图床jsdelivrcdn加速&#34;&gt;PicGo图床+JsDelivrCDN加速
+&lt;/h5&gt;&lt;p&gt;静态图片资源不在项目中存储，而是存在外部图床&lt;/p&gt;
+&lt;h6 id=&#34;搭建github图床&#34;&gt;搭建Github图床
+&lt;/h6&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629194725969.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+创建一个新的仓库，然后配置PicGo&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629194917277.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h6 id=&#34;cdn加速&#34;&gt;CDN加速
+&lt;/h6&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jsdelivr.com/?docs=gh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jsDelivr - A free, fast, and reliable CDN for JS and open source&lt;/a&gt;
+自定义前缀:https://cdn.jsdelivr.net/gh/GitHub用户名/Github图床仓库名&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!attention] Title
+自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高&lt;/p&gt;&lt;/blockquote&gt;
+</description>
         </item>
         <item>
         <title>First</title>

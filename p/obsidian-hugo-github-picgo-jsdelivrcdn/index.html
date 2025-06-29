@@ -333,7 +333,7 @@
             <li><a href="#自定义配置">自定义配置</a></li>
           </ol>
         </li>
-        <li><a href="#15github部署建议开梯子">1.5.GitHub部署(建议开梯子)</a></li>
+        <li><a href="#15github手动部署建议开梯子">1.5.GitHub手动部署(建议开梯子)</a></li>
         <li><a href="#16github-action自动部署到github建议开梯子">1.6.GitHub-Action自动部署到GitHub(建议开梯子)</a>
           <ol>
             <li><a href="#161基础方式obsidian-enveloppe--本地仓库">1.6.1.基础方式（Obsidian-enveloppe + 本地仓库）</a></li>
@@ -405,7 +405,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 7 分钟
                 </time>
             </div>
         
@@ -574,8 +574,56 @@ custom.scss搞完后，要在config.yaml中添加引用
 	
 	
 ></p>
-<h3 id="15github部署建议开梯子">1.5.GitHub部署(建议开梯子)
-</h3><h3 id="16github-action自动部署到github建议开梯子">1.6.GitHub-Action自动部署到GitHub(建议开梯子)
+<h3 id="15github手动部署建议开梯子">1.5.GitHub手动部署(建议开梯子)
+</h3><p>前往【<a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >Github官网</a>】，创建仓库 <strong>{github用户名}.github.io</strong></p>
+<p>前往<code>Setting -&gt; Pages -&gt; Branch</code>选择main分支，然后保存，会自动开启 <strong>https://{github用户名}.github.io</strong> 的地址，这地址也是以后访问博客的地址
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629200014981.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|575x366"
+	
+	
+>
+回到hugo文件中，执行命令<code>hugo -D</code>，会生成 <strong>public</strong> 静态资源文件夹
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629200127919.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|579x461"
+	
+	
+>
+在 <strong>public</strong> 执行以下命令上传到github仓库上，第一次上传可能需要输入账号密码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;first commit&#34;
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin {你的github仓库地址}
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上传成功后，- （5）上传成功后访问https://{github用户名}.github.io ，成功搭建属于自己的Hugo博客</p>
+<blockquote>
+<p>[!attention]
+若对网站的配置进行了修改，则还需要<strong>重新生成public</strong>（把原来文件夹中的删掉）
+然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作</p></blockquote>
+<h3 id="16github-action自动部署到github建议开梯子">1.6.GitHub-Action自动部署到GitHub(建议开梯子)
 </h3><h4 id="161基础方式obsidian-enveloppe--本地仓库">1.6.1.基础方式（Obsidian-enveloppe + 本地仓库）
 </h4><h5 id="网站配置采用本地仓库修改后上传">网站配置采用本地仓库修改后上传
 </h5><p>Github创建一个新的仓库，用于存放Hugo的主文件
@@ -681,7 +729,7 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
 </span></span><span class="line"><span class="cl">          uses: peaceiris/actions-gh-pages@v4
 </span></span><span class="line"><span class="cl">          with:
 </span></span><span class="line"><span class="cl">              PERSONAL_TOKEN: ${{ secrets.你的token变量名 }}
-</span></span><span class="line"><span class="cl">              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+</span></span><span class="line"><span class="cl">              EXTERNAL_REPOSITORY: 你的github名/你的public文件夹的仓库名
 </span></span><span class="line"><span class="cl">              PUBLISH_BRANCH: main
 </span></span><span class="line"><span class="cl">              PUBLISH_DIR: ./public
 </span></span><span class="line"><span class="cl">              commit_message: auto deploy
@@ -753,7 +801,254 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h5 id="obsidian-enveloppe来快捷上传笔记到网站">Obsidian-enveloppe来快捷上传笔记到网站
-</h5>
+</h5><p>参考教程
+<a class="link" href="https://www.printlove.cn/obsidian-blog/"  target="_blank" rel="noopener"
+    >使用 Obsidian 免费建个人博客 | PrintLove</a></p>
+<h6 id="enveloppe配置">Enveloppe配置
+</h6><p>参考教程
+<a class="link" href="https://www.printlove.cn/github-publisher-hugo/"  target="_blank" rel="noopener"
+    >Enveloppe 插件适配 Hugo 的配置 | PrintLove</a>
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629184728889.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|558x418"
+	
+	
+>
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629190020615.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|557x405"
+	
+	
+></p>
+<ul>
+<li>通过 dir 属性获取上传的目录，最终的上传路径为 <code>Root folder / Property key</code>，即 <code>content/post/{dir}</code></li>
+<li>如果 dir 属性没有设置则默认上传到 Default folder 目录下，即 content/post/posts</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629192719506.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|593x581"
+	
+	
+></p>
+<h6 id="图片">图片
+</h6><p>在 Obsidian 中引用本地图片链接时是不需要路径的，而在 Hugo 中一般会把图片统一放在 /static/images 目录下。</p>
+<p>因此在 Hugo 文章的引用方式路径为 <code>/images/图片名称</code>。</p>
+<blockquote>
+<p>因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项</p></blockquote>
+<p>现在要做的就是给 Obsidian 的本地图片路径增加 /images 前缀，使用到了 Text replacer 正则。</p>
+<h6 id="格式转化">格式转化
+</h6><p>支持 <code>![]()</code> 的图片格式，箭头 ↑ 表示会等 <code>![[]]</code> 转化成 <code>![]()</code> 之后执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">匹配内容：/\]\(([^/\)]+?)\.(png|jpg|jpeg|webp|gif|avif)/
+</span></span><span class="line"><span class="cl">替换：](/images/$1.$2
+</span></span><span class="line"><span class="cl">箭头：↑
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>支持 <code>![[]]</code> 的图片格式，且增加了 caption 和 size 的支持，分两种情况：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">情况一，支持 ![[filename.png|size]] 
+</span></span><span class="line"><span class="cl">匹配内容：/\!\[\[([^/\]]+?)\.(png|jpg|jpeg|webp|gif|avif)\|(\d+)(x(\d+))?\]\]/
+</span></span><span class="line"><span class="cl">替换：<figure><img src="/images/$1.$2" width="$3" height="$5">
+</figure>
+
+</span></span><span class="line"><span class="cl">箭头：↓
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">情况二，支持 ![[filename.png|caption|size]]
+</span></span><span class="line"><span class="cl">匹配内容：/\!\[\[([^/\]]+?)\.(png|jpg|jpeg|webp|gif|avif)\|([^\|]*?)(\|(\d+)(x(\d+))?)?\]\]/
+</span></span><span class="line"><span class="cl">替换：<figure><img src="/images/$1.$2"
+    alt="$3" width="$5" height="$7"><figcaption>
+      <p>$3</p>
+    </figcaption>
+</figure>
+
+</span></span><span class="line"><span class="cl">箭头：↓
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面的两种图片格式都支持，区别就是 <code>![[]]</code> 格式会支持图片的 caption 和 size。</p>
+<h6 id="内部文章引用">内部文章引用
+</h6><p><img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629204042223.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|641x304"
+	
+	
+></p>
+<h6 id="文章锚点">文章锚点
+</h6><p>如果文章链接中出现了锚点跳转，则记着下拉框选择 Lower：<img src="https://www.printlove.cn/images/6eb9e895a11107c864eeb7a31509946a.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6eb9e895a11107c864eeb7a31509946a.webp"
+	
+	
+></p>
+<blockquote>
+<p>锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 <code>[[文章#标题]]</code></p></blockquote>
+<p>该配置会将锚点 (<code>#标题</code>) 处理：</p>
+<ol>
+<li>转小写</li>
+<li>空格转化减号 (<code>-</code>)</li>
+</ol>
+<p>只有转化才能正常访问锚点。</p>
+<h6 id="属性一级转二级">属性一级转二级
+</h6><p>在 Obsidian 中如果属性是二级的话，展示效果就非常不友好直观，所以我会在 Obsidian 里这样写需要转二级的属性：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">cover.image: 
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个属性我用来设置文章的封面，具体要看看自己的主题是不是这样，如果不是那需要自己调整下。</p>
+<p>Text replacer 正则：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">匹配内容：/cover\.image/
+</span></span><span class="line"><span class="cl">替换：cover:\n    image
+</span></span><span class="line"><span class="cl">箭头：↑
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>替换中二级的缩紧正常应该使用 <code>\t</code>，但我测试发现无效就改用 4 个空格。</p>
+<h6 id="删除留坑标记">删除留坑标记
+</h6><p>当我发布的文章中如果许诺了一件事情，我就会配合 Obsidian 的 dataview 插件写一个标记。</p>
+<p>然后使用 dataview 插件写的仪表盘里展示出留了哪些坑？</p>
+<p><img src="https://www.printlove.cn/images/0c31efeb13ae78b293b9723c6de97783.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="坑列表示意图"
+	
+	
+></p>
+<p>坑列表示意图</p>
+<p>标记格式（todo1 记着改成 todo，我不想识别到这个标记，只是演示而已）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[todo1:: 留坑的内容]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>dataview 语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">LIST todo WHERE todo != null and share
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在使用 Text replacer 正则删除文章里的标记：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">匹配内容：/\[todo::[^\]]+?\]/
+</span></span><span class="line"><span class="cl">替换这块不填，就会删除匹配到的内容
+</span></span><span class="line"><span class="cl">箭头：↑
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h6 id="标签">标签
+</h6><p>在 Obsidian 里是支持 <code>/</code> 方式渲染多级标签的，在 Hugo 中是不支持的，所以需要开启将 <code>/</code> 转位 <code>_</code>。<img src="https://www.printlove.cn/images/3c3e40b83ac5be7799d55696eadc7218.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3c3e40b83ac5be7799d55696eadc7218.webp"
+	
+	
+></p>
+<h6 id="踩的坑">踩的坑
+</h6><p>Markdown hard line break 最好关闭，我这边开启造成了空行变多，使代码难看、表格无法渲染。</p>
+<h6 id="附件上传图片等">附件上传(图片等)
+</h6><p><img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629193432103.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h5 id="picgo图床jsdelivrcdn加速">PicGo图床+JsDelivrCDN加速
+</h5><p>静态图片资源不在项目中存储，而是存在外部图床</p>
+<h6 id="搭建github图床">搭建Github图床
+</h6><p><img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629194725969.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+创建一个新的仓库，然后配置PicGo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250629194917277.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h6 id="cdn加速">CDN加速
+</h6><p><a class="link" href="https://www.jsdelivr.com/?docs=gh"  target="_blank" rel="noopener"
+    >jsDelivr - A free, fast, and reliable CDN for JS and open source</a>
+自定义前缀:https://cdn.jsdelivr.net/gh/GitHub用户名/Github图床仓库名</p>
+<blockquote>
+<p>[!attention] Title
+自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高</p></blockquote>
+
 </section>
 
 
