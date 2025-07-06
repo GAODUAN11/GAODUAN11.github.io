@@ -476,7 +476,7 @@
   
     var key = "2025-06-29";
     var value = dataMap.get(key);
-    var wordCount =  3026 ;
+    var wordCount =  4014 ;
     var link = "/p/obsidian-hugo-github-picgo-jsdelivrcdn/";
     var title = "Obsidian+Hugo+Github+PicGo+jsDelivrCDN";
   
@@ -676,7 +676,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 7 分钟
+                    阅读时长: 9 分钟
                 </time>
             </div>
         
@@ -845,7 +845,375 @@ custom.scss搞完后，要在config.yaml中添加引用
 	
 	
 ></p>
-<h3 id="15github手动部署建议开梯子">1.5.GitHub手动部署(建议开梯子)
+<h5 id="热力图">热力图
+</h5><p>参考
+<a class="link" href="https://blog2.pillar.fun/p/hugostack%E8%A3%85%E4%BF%AE/#heatmap"  target="_blank" rel="noopener"
+    >HugoStack装修 (pillar.fun)</a></p>
+<h6 id="添加文件">添加文件
+</h6><p>在 <code> /themes/hugo-theme-stack/layouts/shortcodes</code>和 <code> /themes/hugo-theme-stack/layouts/partials</code>里添加一个heatmap.html</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;heatmap&#34;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">1900</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">height</span><span class="p">:</span> <span class="mi">180</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">padding</span><span class="p">:</span> <span class="mi">2</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span> <span class="n">type</span><span class="o">=</span><span class="s2">&#34;text/javascript&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">chartDom</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;heatmap&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">myChart</span> <span class="o">=</span> <span class="n">echarts</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">chartDom</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">window</span><span class="o">.</span><span class="n">onresize</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">myChart</span><span class="o">.</span><span class="n">resize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">option</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">echart</span> <span class="n">heatmap</span> <span class="n">data</span> <span class="n">seems</span> <span class="n">to</span> <span class="n">only</span> <span class="n">support</span> <span class="n">two</span> <span class="n">elements</span> <span class="n">tuple</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">it</span> <span class="n">doesn</span><span class="s1">&#39;t render when each item has 3 value</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">it</span> <span class="n">also</span> <span class="n">only</span> <span class="k">pass</span> <span class="n">first</span> <span class="mi">2</span> <span class="n">elements</span> <span class="n">when</span> <span class="n">reading</span> <span class="n">event</span> <span class="n">param</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">so</span> <span class="n">here</span> <span class="n">we</span> <span class="n">build</span> <span class="n">a</span> <span class="n">map</span> <span class="n">to</span> <span class="n">store</span> <span class="n">additional</span> <span class="n">metadata</span> <span class="n">like</span> <span class="n">link</span> <span class="ow">and</span> <span class="n">title</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">map</span> <span class="n">format</span> <span class="p">{</span><span class="n">date</span><span class="p">:</span> <span class="p">[{</span><span class="n">wordcount</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">title</span><span class="p">}]}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span> <span class="n">see</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">blog</span><span class="o">.</span><span class="n">douchi</span><span class="o">.</span><span class="n">space</span><span class="o">/</span><span class="n">hugo</span><span class="o">-</span><span class="n">blog</span><span class="o">-</span><span class="n">heatmap</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">dataMap</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span> <span class="nb">range</span> <span class="p">((</span><span class="n">where</span> <span class="o">.</span><span class="n">Site</span><span class="o">.</span><span class="n">RegularPages</span> <span class="s2">&#34;Type&#34;</span> <span class="s2">&#34;post&#34;</span><span class="p">))</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{{</span> <span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">Format</span> <span class="s2">&#34;2006-01-02&#34;</span> <span class="p">}};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">value</span> <span class="o">=</span> <span class="n">dataMap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">wordCount</span> <span class="o">=</span> <span class="p">{{</span> <span class="o">.</span><span class="n">WordCount</span> <span class="p">}};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">link</span> <span class="o">=</span> <span class="p">{{</span> <span class="o">.</span><span class="n">RelPermalink</span><span class="p">}};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span> <span class="o">.</span><span class="n">Title</span> <span class="p">}};</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="n">multiple</span> <span class="n">posts</span> <span class="ow">in</span> <span class="n">same</span> <span class="n">day</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">dataMap</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[{</span><span class="n">wordCount</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">title</span><span class="p">}]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">value</span><span class="o">.</span><span class="n">push</span><span class="p">({</span><span class="n">wordCount</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="n">title</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">sum</span> <span class="n">up</span> <span class="n">the</span> <span class="n">word</span> <span class="n">count</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="n">of</span> <span class="n">dataMap</span><span class="o">.</span><span class="n">entries</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">v</span> <span class="n">of</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sum</span> <span class="o">+=</span> <span class="n">v</span><span class="o">.</span><span class="n">wordCount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="o">.</span><span class="n">push</span><span class="p">([</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">sum</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">startDate</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">year_Mill</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">.</span><span class="n">setFullYear</span><span class="p">((</span><span class="n">startDate</span><span class="o">.</span><span class="n">getFullYear</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">startDate</span> <span class="o">=</span> <span class="o">+</span><span class="n">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">year_Mill</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">endDate</span> <span class="o">=</span> <span class="o">+</span><span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">dayTime</span> <span class="o">=</span> <span class="mi">3600</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">startDate</span> <span class="o">=</span> <span class="n">echarts</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">formatTime</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">startDate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">endDate</span> <span class="o">=</span> <span class="n">echarts</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">formatTime</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">endDate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">change</span> <span class="n">date</span> <span class="nb">range</span> <span class="n">according</span> <span class="n">to</span> <span class="n">months</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">render</span>
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">heatmap_width</span><span class="p">(</span><span class="n">months</span><span class="p">){</span>         
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">startDate</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">mill</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">.</span><span class="n">setMonth</span><span class="p">((</span><span class="n">startDate</span><span class="o">.</span><span class="n">getMonth</span><span class="p">()</span> <span class="o">-</span> <span class="n">months</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">endDate</span> <span class="o">=</span> <span class="o">+</span><span class="n">new</span> <span class="n">Date</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">startDate</span> <span class="o">=</span> <span class="o">+</span><span class="n">new</span> <span class="n">Date</span><span class="p">(</span><span class="n">mill</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">endDate</span> <span class="o">=</span> <span class="n">echarts</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">formatTime</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">endDate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">startDate</span> <span class="o">=</span> <span class="n">echarts</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">formatTime</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">,</span> <span class="n">startDate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">showmonth</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">showmonth</span><span class="o">.</span><span class="n">push</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="n">startDate</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">endDate</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">showmonth</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">getRangeArr</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">windowWidth</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">innerWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">windowWidth</span> <span class="o">&gt;=</span> <span class="mi">600</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">heatmap_width</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">windowWidth</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">heatmap_width</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">heatmap_width</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">option</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;博客热力图&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tooltip</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">hideDelay</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">enterable</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">formatter</span><span class="p">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">date</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="n">posts</span> <span class="o">=</span> <span class="n">dataMap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">date</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">content</span> <span class="o">=</span> <span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">date</span><span class="p">}</span><span class="err">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">post</span><span class="p">]</span> <span class="n">of</span> <span class="n">posts</span><span class="o">.</span><span class="n">entries</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">content</span> <span class="o">+=</span> <span class="s2">&#34;&lt;br&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">var</span> <span class="n">link</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">var</span> <span class="n">title</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">var</span> <span class="n">wordCount</span> <span class="o">=</span> <span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">wordCount</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">content</span> <span class="o">+=</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&#34;${link}&#34;</span> <span class="n">target</span><span class="o">=</span><span class="s2">&#34;_blank&#34;</span><span class="o">&gt;$</span><span class="p">{</span><span class="n">title</span><span class="p">}</span> <span class="o">|</span> <span class="o">$</span><span class="p">{</span><span class="n">wordCount</span><span class="p">}</span> <span class="n">k</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span><span class="err">`</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">content</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visualMap</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">min</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">max</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;piecewise&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">orient</span><span class="p">:</span> <span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="n">inRange</span><span class="p">:</span> <span class="p">{</span>   
+</span></span><span class="line"><span class="cl">          <span class="o">//</span>  <span class="p">[</span><span class="nb">floor</span> <span class="n">color</span><span class="p">,</span> <span class="n">ceiling</span> <span class="n">color</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="n">color</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#7aa8744c&#39;</span><span class="p">,</span> <span class="s1">&#39;#7AA874&#39;</span> <span class="p">]</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">splitNumber</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;千字&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">showLabel</span><span class="p">:</span> <span class="bp">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">itemGap</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">calendar</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">right</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cellSize</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">range</span><span class="p">:</span> <span class="n">getRangeArr</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">itemStyle</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;#F1F1F1&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">borderWidth</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">borderColor</span><span class="p">:</span> <span class="s1">&#39;#fff&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">yearLabel</span><span class="p">:</span> <span class="p">{</span> <span class="n">show</span><span class="p">:</span> <span class="bp">false</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="o">//</span> <span class="n">the</span> <span class="n">splitline</span> <span class="n">between</span> <span class="n">months</span><span class="o">.</span> <span class="n">set</span> <span class="n">to</span> <span class="n">transparent</span> <span class="k">for</span> <span class="n">now</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">splitLine</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">lineStyle</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="p">:</span> <span class="s1">&#39;rgba(0, 0, 0, 0.0)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="n">shadowColor</span><span class="p">:</span> <span class="s1">&#39;rgba(0, 0, 0, 0.5)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="n">shadowBlur</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="n">width</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span> <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="n">series</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">type</span><span class="p">:</span> <span class="s1">&#39;heatmap&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">coordinateSystem</span><span class="p">:</span> <span class="s1">&#39;calendar&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">myChart</span><span class="o">.</span><span class="n">setOption</span><span class="p">(</span><span class="n">option</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">myChart</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">componentType</span> <span class="o">===</span> <span class="s1">&#39;series&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="n">open</span> <span class="n">the</span> <span class="n">first</span> <span class="n">post</span> <span class="n">on</span> <span class="n">the</span> <span class="n">day</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">post</span> <span class="o">=</span> <span class="n">dataMap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">link</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">origin</span> <span class="o">+</span> <span class="n">post</span><span class="o">.</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">window</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">focus</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果在html模板中使用，就在要用的位置写 <code>{{ partial &quot;heatmap&quot; . }}</code>
+如果在Markdown里用，在要用的位置写<code>{{/* heatmap */}}</code></p>
+<p>比如<code>\themes\hugo-theme-stack\layouts\_default</code>中，对各个页面的html修改
+例如在主页html里面添加
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250702121445978.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|569x458"
+	
+	
+>
+在归档html里面添加(已删除)
+<img src="https://cdn.jsdelivr.net/gh/GAODUAN11/PictureBed/20250702121653323.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="|568x399"
+	
+	
+></p>
+<h6 id="明暗适配设置">明暗适配设置
+</h6><h3 id="15github手动部署建议开梯子">1.5.GitHub手动部署(建议开梯子)
 </h3><p>前往【<a class="link" href="https://github.com/"  target="_blank" rel="noopener"
     >Github官网</a>】，创建仓库 <strong>{github用户名}.github.io</strong></p>
 <p>前往<code>Setting -&gt; Pages -&gt; Branch</code>选择main分支，然后保存，会自动开启 <strong>https://{github用户名}.github.io</strong> 的地址，这地址也是以后访问博客的地址
