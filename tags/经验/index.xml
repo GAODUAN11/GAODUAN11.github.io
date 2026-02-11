@@ -583,7 +583,8 @@ custom.scss搞完后，要在config.yaml中添加引用
 &lt;blockquote&gt;
 &lt;p&gt;[!attention]
 若对网站的配置进行了修改，则还需要&lt;strong&gt;重新生成public&lt;/strong&gt;（把原来文件夹中的删掉）
-然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作&lt;/p&gt;&lt;/blockquote&gt;
+然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;16github-action自动部署到github建议开梯子&#34;&gt;1.6.GitHub-Action自动部署到GitHub(建议开梯子)
 &lt;/h3&gt;&lt;h4 id=&#34;161基础方式obsidian-enveloppe--本地仓库&#34;&gt;1.6.1.基础方式（Obsidian-enveloppe + 本地仓库）
 &lt;/h4&gt;&lt;h5 id=&#34;网站配置采用本地仓库修改后上传&#34;&gt;网站配置采用本地仓库修改后上传
@@ -807,7 +808,8 @@ token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt
 &lt;/h6&gt;&lt;p&gt;在 Obsidian 中引用本地图片链接时是不需要路径的，而在 Hugo 中一般会把图片统一放在 /static/images 目录下。&lt;/p&gt;
 &lt;p&gt;因此在 Hugo 文章的引用方式路径为 &lt;code&gt;/images/图片名称&lt;/code&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;现在要做的就是给 Obsidian 的本地图片路径增加 /images 前缀，使用到了 Text replacer 正则。&lt;/p&gt;
 &lt;h6 id=&#34;格式转化&#34;&gt;格式转化
 &lt;/h6&gt;&lt;p&gt;支持 &lt;code&gt;![]()&lt;/code&gt; 的图片格式，箭头 ↑ 表示会等 &lt;code&gt;![[]]&lt;/code&gt; 转化成 &lt;code&gt;![]()&lt;/code&gt; 之后执行：&lt;/p&gt;
@@ -879,7 +881,8 @@ token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt
 	
 &gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 &lt;code&gt;[[文章#标题]]&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 &lt;code&gt;[[文章#标题]]&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;该配置会将锚点 (&lt;code&gt;#标题&lt;/code&gt;) 处理：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;转小写&lt;/li&gt;
@@ -1008,7 +1011,8 @@ token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt
 自定义前缀:https://cdn.jsdelivr.net/gh/GitHub用户名/Github图床仓库名&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!attention] Title
-自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高&lt;/p&gt;&lt;/blockquote&gt;
+自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         

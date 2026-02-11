@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://GAODUAN11.github.io/p/obsidian-hugo-github-picgo-jsdelivrcdn/'>
 
-<link rel="stylesheet" href="/scss/style.min.0366b5b9a13836d8aac3966ebbaa25920b233e42813047f7bec2bbd7541e60e5.css"><meta property='og:title' content="Obsidian+Hugo+Github+PicGo+jsDelivrCDN">
+<link rel="stylesheet" href="/scss/style.min.97ebf6453852a906f1926fb6682a9a2eb1f56af2410bce1ca5123763fb0b933d.css"><meta property='og:title' content="Obsidian+Hugo+Github+PicGo+jsDelivrCDN">
 <meta property='og:description' content="1.本地Hugo框架搭建 参考教程 【Hugo】Hugo + Github 免费部署自己的博客 (letere-gzj.github.io)\n1.1.下载hugo 1.1.1.官网下载地址 gohugoio/hugo: The world’s fastest framework for building websites. (github.com) 1.2.下载git 1.2.1官网下载 Git (git-scm.com)\n1.3.搭建博客 (1)创建博客 在hugo.exe所在文件夹的地址栏敲打cmd，然后Enter唤起命令行 ">
 <meta property='og:url' content='https://GAODUAN11.github.io/p/obsidian-hugo-github-picgo-jsdelivrcdn/'>
 <meta property='og:site_name' content='NurKoGD'>
@@ -59,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/weeken_hu_95ec977eca8220e5.png" width="300"
+                        <img src="/img/weeken_hu_c4601c98d70bffc7.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -474,6 +474,18 @@
   
   var dataMap = new Map();
   
+    var key = "2026-02-11";
+    var value = dataMap.get(key);
+    var wordCount =  0 ;
+    var link = "/p/2026feb10/";
+    var title = "2026Feb10";
+  
+    
+    if (value == null) {
+      dataMap.set(key, [{wordCount, link, title}]);
+    } else {
+      value.push({wordCount, link, title});
+    }
     var key = "2025-06-29";
     var value = dataMap.get(key);
     var wordCount =  4014 ;
@@ -1261,7 +1273,8 @@ custom.scss搞完后，要在config.yaml中添加引用
 <blockquote>
 <p>[!attention]
 若对网站的配置进行了修改，则还需要<strong>重新生成public</strong>（把原来文件夹中的删掉）
-然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作</p></blockquote>
+然后再重新上传到远程仓库中，很麻烦，所以就有了action辅助自动执行public操作</p>
+</blockquote>
 <h3 id="16github-action自动部署到github建议开梯子">1.6.GitHub-Action自动部署到GitHub(建议开梯子)
 </h3><h4 id="161基础方式obsidian-enveloppe--本地仓库">1.6.1.基础方式（Obsidian-enveloppe + 本地仓库）
 </h4><h5 id="网站配置采用本地仓库修改后上传">网站配置采用本地仓库修改后上传
@@ -1485,7 +1498,8 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
 </h6><p>在 Obsidian 中引用本地图片链接时是不需要路径的，而在 Hugo 中一般会把图片统一放在 /static/images 目录下。</p>
 <p>因此在 Hugo 文章的引用方式路径为 <code>/images/图片名称</code>。</p>
 <blockquote>
-<p>因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项</p></blockquote>
+<p>因为我是用的图床那这个配置也没那么重要，如果想与项目存储到一块则设置这一项</p>
+</blockquote>
 <p>现在要做的就是给 Obsidian 的本地图片路径增加 /images 前缀，使用到了 Text replacer 正则。</p>
 <h6 id="格式转化">格式转化
 </h6><p>支持 <code>![]()</code> 的图片格式，箭头 ↑ 表示会等 <code>![[]]</code> 转化成 <code>![]()</code> 之后执行：</p>
@@ -1557,7 +1571,8 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
 	
 ></p>
 <blockquote>
-<p>锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 <code>[[文章#标题]]</code></p></blockquote>
+<p>锚点跳转就是跳转到文章的某个标题处，在 Obsidian 的格式为 <code>[[文章#标题]]</code></p>
+</blockquote>
 <p>该配置会将锚点 (<code>#标题</code>) 处理：</p>
 <ol>
 <li>转小写</li>
@@ -1686,7 +1701,8 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
 自定义前缀:https://cdn.jsdelivr.net/gh/GitHub用户名/Github图床仓库名</p>
 <blockquote>
 <p>[!attention] Title
-自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高</p></blockquote>
+自定义域名要设置前缀，从而使得CDN加速访问Github图床资源，有利于图片加载速度提高</p>
+</blockquote>
 
 </section>
 
@@ -1807,7 +1823,7 @@ token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflo
         
             2020 - 
         
-        2025 G端-NurKoGD
+        2026 G端-NurKoGD
     </section>
     
     <section class="powerby">
